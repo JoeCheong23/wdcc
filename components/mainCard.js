@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 
 
+
 const useStyles = makeStyles({
     root: {
       minWidth: 275,
@@ -25,28 +26,26 @@ const useStyles = makeStyles({
     },
   });
 
-function Maincard() {
+function Maincard({title, date, description}) {
     const classes = useStyles();
     const bull = <span className={classes.bullet}>•</span>;
+    
   
     return (
-      <Card className={classes.root}>
+      <Card className="box">
         <CardContent>
-
-          <Typography variant="h5" component="h2">
-            be{bull}nev{bull}o{bull}lent
+          <Typography variant="h5" component="h2" className="h1">
+            {title}
           </Typography>
-          <Typography className={classes.pos} color="textSecondary">
-            adjective
+          <Typography className="test" color="textSecondary">
+            {date}
           </Typography>
-          <Typography variant="body2" component="p">
-            well meaning and kindly.
-            <br />
-            {'"a benevolent smile"'}
+          <Typography variant="body2" component="p" className="subHead">
+            {description}
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small">Learn More</Button>
+          <Button size="small" className="button">Comment</Button>
         </CardActions>
       </Card>
     );

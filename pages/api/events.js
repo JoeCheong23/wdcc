@@ -13,8 +13,8 @@ handler.use(mongodb)
 handler.get(async (req, res) => {
   // find returns a cursor which we need to iterate through to get the results.
   // use next or toArray
-  const doc = await req.db.collection('QnA').find().toArray()
-  // console.log(doc)
+  const doc = await req.db.collection('Posts').find().toArray()
+  console.log("doc")
   res.json(doc)
 })
 
@@ -25,7 +25,7 @@ handler.post(async (req, res) => {
   console.log("LKSJDFLKJSLDKFJLKSDJF")
 
   //await req.db.collection('events').updateOne({ date: data.date }, { $set: data }, { upsert: true })
-  req.db.collection('QnA').insertOne(
+  req.db.collection('Posts').insertOne(
     {
       Title: req.body
     }
