@@ -49,6 +49,12 @@ function HelloFunction () {
         <Hello name={name} />
         <h1>{events[1] ? events[1].Question : ''}</h1>
 
+        {events.map(event => {
+          return (
+            <h1>{event ? event.Question : ''}</h1>
+          )
+        })}
+
       <form>
         <label>
           Title:
