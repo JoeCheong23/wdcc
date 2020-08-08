@@ -7,6 +7,9 @@ const name = 'Henry'
 
 function HelloFunction () {
   const [events, setEvents] = useState([])
+  const [value, setValue] = useState('');
+
+
   // fetch data
   useEffect(() => {
     const fetchEvents = async () => {
@@ -17,6 +20,27 @@ function HelloFunction () {
     fetchEvents()
   }, [])
 
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  }
+
+  const handleSubmit = async (event) => {
+    alert('A name was submitted: ' + value);
+    await fetch(`${config.HOST}/api/events`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({newTitle: value})
+      
+    })
+    console.log('after')
+    console.log(JSON.stringify({newTitle: value}))
+    event.preventDefault();
+  }
+
+
   return(
     <Layout>
       <article>
@@ -24,6 +48,14 @@ function HelloFunction () {
         <Greet />
         <Hello name={name} />
         <h1>{events[1] ? events[1].Question : ''}</h1>
+
+      <form>
+        <label>
+          Title:
+          <input type="text" name="title" value={value} onChange={handleChange}/>
+        </label>
+        <input type="submit" value="Submit" onClick={handleSubmit}/>
+      </form>
       </article>
     </Layout>
   )
