@@ -19,7 +19,8 @@ const ProfileCard = ({ user }) => {
 
 function Profile () {
   const { user, loading } = useFetchUser({ required: true })
-
+  console.log(user)
+  user.roles = user['https://google.com/roles']
   return (
     <Layout user={user} loading={loading}>
       {loading ? <>Loading...</>
@@ -27,6 +28,7 @@ function Profile () {
           <>
             <ProfileCard user={user} />
           </>)}
+          <p>{user.roles}</p>
     </Layout>
   )
 }

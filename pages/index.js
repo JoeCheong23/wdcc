@@ -1,3 +1,4 @@
+import Maincard from '../components/mainCard'
 import fetch from 'node-fetch'
 import Layout from '../components/layout'
 import { useFetchUser } from '../lib/user'
@@ -37,6 +38,11 @@ function Home () {
     <Layout user={user} loading={loading}>
       <h1>Page heading</h1>
       <p>Interesting content here</p>
+
+      <div>
+        <Maincard></Maincard>
+        <Link href='/about'><a>Go to profile</a></Link>
+      </div>
 
       {loading && <p>Loading login info...</p>}
       {!loading && !user && (
