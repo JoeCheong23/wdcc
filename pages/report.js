@@ -22,7 +22,7 @@ function Report () {
   return (
     <Layout user={user} loading={loading}>
       <h1>Results {events.length}</h1>
-      <EventsTable events={events} />
+      <EventsTable events={events } />
     </Layout>
   )
 }

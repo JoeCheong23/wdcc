@@ -13,8 +13,8 @@ handler.use(mongodb)
 handler.get(async (req, res) => {
   // find returns a cursor which we need to iterate through to get the results.
   // use next or toArray
-  const doc = await req.db.collection('events').find().toArray()
-  // console.log(doc)
+  const doc = await req.db.collection('QnA').find().toArray()
+  console.log(doc)
   res.json(doc)
 })
 
