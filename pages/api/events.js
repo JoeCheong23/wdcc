@@ -13,9 +13,11 @@ handler.use(mongodb)
 handler.get(async (req, res) => {
   // find returns a cursor which we need to iterate through to get the results.
   // use next or toArray
-  const doc = await req.db.collection('QnA').find().toArray()
+  const doc = await req.db.collection('Posts').find().sort({"Date": -1}).toArray()
+  const doc2 = await req.db.collection('Replies').find().toArray()
   console.log(doc)
   res.json(doc)
+  res.json(doc2)
 })
 
 handler.post(async (req, res) => {
@@ -28,5 +30,7 @@ handler.post(async (req, res) => {
     res.json({ message: 'error', e })
   }
 })
+
+
 
 export default handler
