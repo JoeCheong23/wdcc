@@ -45,7 +45,11 @@ function Main() {
           question: question,
           description: description
         }
-
+        // Get the result JSON
+        // Then insert it into an array
+        // (Optional) Then sort the array by date
+        // Then setEvents with new array
+        const arr = [newEvent, ...events]
         fetch('/api/qa',{ method:'POST', body: JSON.stringify(info)})
         const q = document.getElementById('Question').value;
         const d = document.getElementById('Description').value;
@@ -97,7 +101,7 @@ function Main() {
               </div>
 
               <Button variant="contained" color="secondary" className="button2">Live Chat</Button>
-              { events.map(event => <Maincard title={event.Question} date={event.Date} description={event.Description}/> )}
+              { events.reverse().map(event => <Maincard title={event.Question} date={event.Date} description={event.Description}/> )}
               {/* <Maincard ></Maincard> */}
               <Typography className="footer">Made with love by sixDynamos</Typography>
             </div>
