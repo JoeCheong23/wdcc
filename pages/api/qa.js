@@ -19,7 +19,7 @@ handler.post(async (req, res) => {
     data.date = new Date();
     console.log(data);
     try {
-      await req.db.collection('Post').insertOne({ Question: data.question, Description: data.description, Date: data.date })
+      await req.db.collection('Posts').insertOne({ Question: data.question, Description: data.description, Date: data.date })
       res.json({ message: 'ok' })
     } catch (e) {
       res.json({ message: 'error', e })
