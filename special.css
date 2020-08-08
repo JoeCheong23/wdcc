@@ -1,0 +1,40 @@
+.questionForm {
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.question {
+    border-radius: 5px;
+    width: 500px;
+}
+
+.description {
+    border-radius: 5px;
+    width: 500px;
+    height: 100px;
+}
+
+.popupForm {
+    display: none;
+    position: fixed;
+    left: 50%;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+    background-color: rgb(161, 160, 160);
+}
+
+.closeButton {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.inputElements {
+    position: absolute;
+    bottom: 5px;
+}
