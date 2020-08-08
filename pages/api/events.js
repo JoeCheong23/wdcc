@@ -19,10 +19,7 @@ handler.get(async (req, res) => {
 })
 
 handler.post(async (req, res) => {
-  console.log(req.body)
-  // const data = JSON.parse(req.body)
-
-  console.log("LKSJDFLKJSLDKFJLKSDJF")
+  console.log("Data has been entered into database:" + req.body.Title)
 
   //await req.db.collection('events').updateOne({ date: data.date }, { $set: data }, { upsert: true })
   req.db.collection('QnA').insertOne(
@@ -30,8 +27,6 @@ handler.post(async (req, res) => {
       Title: req.body
     }
   )
-
-    res.json('hi')
 })
 
 
