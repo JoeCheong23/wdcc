@@ -19,7 +19,7 @@ const ProfileCard = ({ user }) => {
 
 function Profile () {
   const { user, loading } = useFetchUser({ required: true })
-
+  console.log(user)
   return (
     <Layout user={user} loading={loading}>
       {loading ? <>Loading...</>

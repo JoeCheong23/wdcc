@@ -5,7 +5,6 @@ function About () {
   const { user, loading } = useFetchUser()
 
   return (
-    <Layout user={user} loading={loading}>
       <article>
         <h1>Project Brief</h1>
 
@@ -75,7 +74,6 @@ function About () {
           <li>Sun API and data.</li>
         </ul>
       </article>
-    </Layout>
   )
 }
 
