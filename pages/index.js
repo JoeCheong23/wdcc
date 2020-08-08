@@ -36,14 +36,13 @@ function Home () {
   }
   return (
     <Layout user={user} loading={loading}>
-      <h1>Page heading</h1>
-      <p>Interesting content here</p>
-
-      <div>
-        <Maincard></Maincard>
-        <Link href='/about'><a>Go to profile</a></Link>
-      </div>
-
+      <h1>Kalm</h1>
+      <h3>Mental health is preserved wealth</h3>
+      <p>
+      “Health is more than what you are eating, it is what you are thinking, saying and believing”
+      For some of you, it may be a little daunting to talk about your problems face to face with someone you don't know. 
+      Here at UoA Health Coach, we are here to provide students with confidential online support for any issues relating to mental well-being whether it be a general query you want to pass with our counsellors or contact them personally through a live chat.
+      </p>
       {loading && <p>Loading login info...</p>}
       {!loading && !user && (
         <>
@@ -52,17 +51,14 @@ function Home () {
           </p>
         </>
       )}
-      {user && (
+      {/* {user && (
         <>
-          <ProfileCard user={user}>
-            <button className='btn-blue' onClick={handleClick}>Event</button>
-          </ProfileCard>
           <h2>Reports</h2>
           <LinkA href='/report'>Report - useEffect</LinkA>
           <LinkA href='/reportSSR'>Report - SSR</LinkA>
           <LinkA href='/reportSWR'>Report - SWR</LinkA>
 
-        </>)}
+        </>)} */}
     </Layout>
   )
 }
