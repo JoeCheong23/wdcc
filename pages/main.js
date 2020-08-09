@@ -75,38 +75,44 @@ function Main() {
     }
 
     const openForm = (e) => {
-      document.getElementById('inputForm').style.display = "block";
+      toggle();
     }
 
     const closeForm = (e) => {
-      document.getElementById('inputForm').style.display = "none";
+    
+      toggle();
+    }
+
+    function toggle() {
+      var blur = document.getElementById('blur');
+      blur.classList.toggle('active');
+      var inputForm = document.getElementById('inputForm');
+      inputForm.classList.toggle('active');
     }
 
     return (
         <>
           <div className="wholebox">
-            <div className="topbutt">
+            <div className="topbutt" id="blur">
               <Button variant="contained" color="primary" className="button2" onClick={e => openForm(e)}>Seek Help</Button>
-              <div className="questionForm">
-                <div id="inputForm" className="popupForm">
+
+              <Button variant="contained" color="secondary" className="button2">Live Chat</Button>
+              {isLoading ? <CircularProgress color="secondary" size={50} style={{position: 'absolute', top:'50%', left:'50%'}}/> : events.sort((a,b) => new Date(b.Date).getTime()).map(event => <Maincard title={event.Question} date={event.Date} description={event.Description}/> )}
+                  
+              <Typography className="footer">Made with love by sixDynamos</Typography>
+            </div>
+            <div id="inputForm" className="popupForm">
+            <button type="button" className="closeButton" onClick={e => closeForm(e)}>X</button>
                   <form className="inputElements">
-                    <button type="button" className="closeButton" onClick={e => closeForm(e)}>X</button>
                     <h2>Question:</h2>
-                    <input className="question" id="Question" type="text" placeholder="Question" onChange={e => setQuestion(e.target.value)}></input><br></br>
+                    <input className="question" id="Question" type="text" placeholder="Enter your problem..." onChange={e => setQuestion(e.target.value)}></input><br></br>
                     <h2>Description:</h2>
-                    <textarea className="description" id="Description" placeholder="Describe your question" onChange={e => setDescription(e.target.value)}></textarea><br></br>
+                    <textarea className="description" id="Description" placeholder="Describe your problem" onChange={e => setDescription(e.target.value)}></textarea><br></br>
                     <input className="postButton" type="submit"onClick={e => submit(e)} value="Post"></input>
                   </form>
                 </div>
-              </div>
-
-              <Button variant="contained" color="secondary" className="button2">Live Chat</Button>
-        
-              {isLoading ? <CircularProgress color="secondary" size={100} style={{position: 'absolute', top:'50%', left:'47%'}}/> : events.map(event => <Maincard title={event.Question} date={event.Date} description={event.Description}/> )}
-              <Typography className="footer">Made with love by sixDynamos</Typography>
-            </div>
-          </div
-        ></>
+          </div>
+        </>
     );
 }
 

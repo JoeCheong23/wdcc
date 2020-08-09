@@ -10,6 +10,79 @@
     margin-top: 50vh !important;
 }
 
+.footer {
+    margin-top: 2vh !important;
+    text-align: center !important;
+    font-family: 'Vollkorn', serif !important;
+    display: block !important;
+    color: wheat !important;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn:wght@900&display=swap');
+
+.questionForm {
+    position: absolute;
+
+}
+
+.question {
+    border-radius: 5px;
+    width: 500px;
+}
+
+.description {
+    border-radius: 5px;
+    width: 500px;
+    height: 100px;
+}
+
+.popupForm {
+    transition: 0.5s;
+    margin: 10px;
+    text-align: center;
+    position: absolute;
+    height: 50%;
+    width: 60%;
+    top: 40%;
+    left: 50%;
+    z-index: 9;
+    background-color: #F0EEEB;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    box-shadow: 0 5px 30px rgba(0,0,0,.30);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+#inputForm.active {
+    top: 50%;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.closeButton {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.inputElements {
+    top: 50%;
+    position: relative;
+    align-items: centers;
+    bottom: 5px;
+    transform: translate(0, -50%);
+}
+
+.topbutt#blur.active {
+    filter: blur(20px);
+    pointer-events: none;
+    user-select: none;
+}
+
 .subtit {
     margin-top: -15vh !important;
     font-size: 3em !important;
@@ -34,59 +107,6 @@ ul {
     position: fixed !important;
     display: inline;
     z-index: 2;
-}
-
-.questionForm {
-    text-align: center;
-    margin: 0;
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
-
-html {
-    background-image: url("/home_img.png") !important;
-}
-
-.question {
-    border-radius: 5px;
-    width: 500px;
-}
-
-.description {
-    border-radius: 5px;
-    width: 500px;
-    height: 100px;
-}
-
-.popupForm {
-    display: none;
-    position: fixed;
-    left: 50%;
-    border: 3px solid #f1f1f1;
-    z-index: 9;
-    background-color: rgb(161, 160, 160);
-}
-
-.closeButton {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-}
-
-.inputElements {
-    position: absolute;
-    bottom: 5px;
-}
-
-.footer {
-    margin-top: 2vh !important;
-    text-align: center !important;
-    font-family: 'Vollkorn', serif !important;
-    display: block !important;
-    color: wheat !important;
 }
 
 .topbutt{
