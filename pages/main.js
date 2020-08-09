@@ -3,11 +3,9 @@ import { Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Maincard from '../components/mainCard'
 import config from '../lib/config'
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { useFetchUser } from '../lib/user'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 const useStyles = makeStyles({
     root: {
@@ -31,6 +29,7 @@ function Main() {
     const classes = useStyles();
     const bull = <span className={classes.bullet}>•</span>;
     const [events, setEvents] = useState([])
+    const [isLoading, setLoading] = useState(true)
     const [value, setValue] = useState('');
 
     const { user, loading } = useFetchUser()
@@ -49,7 +48,7 @@ function Main() {
         // Then insert it into an array
         // (Optional) Then sort the array by date
         // Then setEvents with new array
-        const arr = [newEvent, ...events]
+        // const arr = [newEvent, ...events]
         fetch('/api/qa',{ method:'POST', body: JSON.stringify(info)})
         const q = document.getElementById('Question').value;
         const d = document.getElementById('Description').value;
@@ -65,6 +64,7 @@ function Main() {
       const fetchEvents = async () => {
         const res = await fetch(`${config.HOST}/api/events`)
         const evts = await res.json()
+        setLoading(false)
         setEvents(evts)
       }
       fetchEvents()
@@ -101,8 +101,8 @@ function Main() {
               </div>
 
               <Button variant="contained" color="secondary" className="button2">Live Chat</Button>
-              { events.reverse().map(event => <Maincard title={event.Question} date={event.Date} description={event.Description}/> )}
-              {/* <Maincard ></Maincard> */}
+        
+              {isLoading ? <CircularProgress color="secondary" size={100} style={{position: 'absolute', top:'50%', left:'47%'}}/> : events.map(event => <Maincard title={event.Question} date={event.Date} description={event.Description}/> )}
               <Typography className="footer">Made with love by sixDynamos</Typography>
             </div>
           </div

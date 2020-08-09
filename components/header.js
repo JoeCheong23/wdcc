@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Button } from '@material-ui/core';
 
 const MenuItem = ({ children, href }) =>
   <Link href={href}>
@@ -15,14 +16,10 @@ function Header ({ user, loading }) {
           {!loading &&
             (user ? (
               <>
-                <MenuItem href='/api/logout'>
-                Logout
-                </MenuItem>
+                <Button href='/api/logout' size="small" className="button5">logout</Button>
               </>
             ) : (
-              <MenuItem href='/api/login'>
-                Login
-              </MenuItem>
+                <Button href='/api/login' size="small" className="button5">login</Button>
             ))}
         </ul>
       </nav>

@@ -38,24 +38,23 @@ function Home () {
     logEvent('click', 1)
   }
   return (
-    <>
+    <div className="back" backgroundI>
       {/* <ParticlesBg type="circle" bg={true} /> */}
-      <Layout user={user} loading={loading}>
-        <div className="whoebox">
-          <h1 className="h1">Kalm</h1>
-          <h3 className="subHead">counsellors at your fingertips</h3>
-          <div className="box">
-            <p className="subHead"> 
+        <div className="boxybox">
+          {/* <img src="./public/UoA.png"></img> */}
+          {/* <h1 className="tit">Kalm</h1> */}
+          <h3 className="subtit">counsellors at your fingertips</h3>
+          <div className="boxtit">
+            <p className="subHeadtit"> 
             “Health is more than what you are eating, it is what you are thinking, saying and believing”
             For some of you, it may be a little daunting to talk about your problems face to face with someone you don't know. 
             Here at UoA Health Coach, we are here to provide students with confidential online support for any issues relating to mental well-being whether it be a general query you want to pass with our counsellors or contact them personally through a live chat.
             </p>
-            {loading && <p>Loading login info...</p>}
-            {!loading && !user && (
+            
               <>
-                <Button className="button" variant="contained" color="default" type="submit"><a href='/api/login'>Login</a></Button>
+                <Layout user={user} loading={loading} className="menubar"></Layout>
               </>
-            )}
+            
             {/* {user && (
               <>
                 <h2>Reports</h2>
@@ -66,8 +65,8 @@ function Home () {
               </>)} */}
           </div>
         </div>
-      </Layout>
-    </>
+      
+    </div>
   )
 }
 
