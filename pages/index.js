@@ -38,7 +38,7 @@ function Home () {
     logEvent('click', 1)
   }
   return (
-    <div className="back" backgroundI>
+    <div className="back">
       {/* <ParticlesBg type="circle" bg={true} /> */}
         <div className="boxybox">
           {/* <img src="./public/UoA.png"></img> */}

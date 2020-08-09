@@ -15,11 +15,10 @@ handler.use(mongodb)
 handler.post(async (req, res) => {
     console.log('req',req.body);
     const data = JSON.parse(req.body);
-    data.date = new Date();
     console.log(data);
     try {
-      await req.db.collection('Posts').insertOne({ Question: data.question, Description: data.description, Date: data.date.toLocal.toString() })
-      res.json({ message: 'ok' })
+      await req.db.collection('Posts').insertOne({ Question: data.Question, Description: data.Description, Date: data.Date })
+      res.json(data)
     } catch (e) {
       res.json({ message: 'error', e })
     }

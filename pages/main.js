@@ -85,8 +85,6 @@ function Main() {
       // update page
       document.getElementById('Question').value = "";
       document.getElementById('Description').value = "";
-
-      document.getElementById('inputForm').style.display = "none";
       e.preventDefault()
       toggle()
   }
@@ -134,15 +132,15 @@ function Main() {
               <Typography className="footer">Made with love by sixDynamos</Typography>
             </div>
             <div id="inputForm" className="popupForm">
-            <button type="button" className="closeButton" onClick={e => closeForm(e)}>X</button>
+              <button type="button" className="closeButton" onClick={e => closeForm(e)}>X</button>
                   <form className="inputElements">
-                    <h2>Question:</h2>
+                    <h2>Problem:</h2>
                     <input className="question" id="Question" type="text" placeholder="Enter your problem..." onChange={e => setQuestion(e.target.value)}></input><br></br>
                     <h2>Description:</h2>
-                    <textarea className="description" id="Description" placeholder="Describe your problem" onChange={e => setDescription(e.target.value)}></textarea><br></br>
-                    <input className="postButton" type="submit"onClick={e => submit(e)} value="Post"></input>
+                    <textarea className="description" id="Description" placeholder="Describe your problem..." onChange={e => setDescription(e.target.value)}></textarea><br></br>
+                    <input className="button5" type="submit"onClick={e => submit(e)} value="Post"></input>
                   </form>
-                </div>
+            </div>
           </div>
         </>
     );
