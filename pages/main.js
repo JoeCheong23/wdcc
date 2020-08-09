@@ -37,27 +37,59 @@ function Main() {
     const [description, setDescription] = useState("")
 
     const submit = (e) => {
-        e.preventDefault()
-        console.log({question, description})
-        
-        const info = {
-          question: question,
-          description: description
-        }
-        // Get the result JSON
-        // Then insert it into an array
-        // (Optional) Then sort the array by date
-        // Then setEvents with new array
-        // const arr = [newEvent, ...events]
-        fetch('/api/qa',{ method:'POST', body: JSON.stringify(info)})
-        const q = document.getElementById('Question').value;
-        const d = document.getElementById('Description').value;
-        // update page
-        document.getElementById('Question').value = "";
-        document.getElementById('Description').value = "";
+      console.log({question, description})
+      
+      var date = new Date();
 
-        document.getElementById('inputForm').style.display = "none";
-    }
+      var dd = date.getDate();
+
+      var mm = date.getMonth()+1; 
+      var yyyy = date.getFullYear();
+      var hh = date.getHours();
+      var min = date.getMinutes();
+
+      if(dd<10) 
+      {
+          dd='0'+dd;
+      } 
+
+      if(mm<10) 
+      {
+          mm='0'+mm;
+      } 
+
+      if (min<10) 
+      {
+        min = '0' + min
+      }
+
+      if (hh < 10) {
+        hh = '0' + hh
+      }
+      var today = mm+'-'+dd+'-'+yyyy + ' ' + hh + ':' + min;
+
+      const info = {
+        Question: question,
+        Description: description,
+        Date: today
+      }
+
+      fetch('/api/qa',{ method:'POST', body: JSON.stringify(info)})
+      setEvents([info, ...events])
+      
+      console.log(`Result: ${JSON.stringify(events)}`)
+
+
+      const q = document.getElementById('Question').value;
+      const d = document.getElementById('Description').value;
+      // update page
+      document.getElementById('Question').value = "";
+      document.getElementById('Description').value = "";
+
+      document.getElementById('inputForm').style.display = "none";
+      e.preventDefault()
+      toggle()
+  }
 
     // fetch data
     useEffect(() => {
