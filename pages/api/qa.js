@@ -15,11 +15,10 @@ handler.use(mongodb)
 handler.post(async (req, res) => {
     console.log('req',req.body);
     const data = JSON.parse(req.body);
-    data.date = new Date();
 
     try {
-      await req.db.collection('Posts').insertOne({ Question: data.question, Description: data.description, Date: data.date })
-      console.log(data)
+      await req.db.collection('Posts').insertOne({ Question: data.Question, Description: data.Description, Date: data.Date })
+      console.log("SUBMITTED TO DATABASE")
       res.json(data)
     } catch (e) {
       res.json({ message: 'error', e })
