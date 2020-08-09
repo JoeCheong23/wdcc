@@ -71,22 +71,35 @@ function Main() {
     }
 
     const openForm = (e) => {
-      document.getElementById('inputForm').style.display = "block";
+      toggle();
     }
 
     const closeForm = (e) => {
-      document.getElementById('inputForm').style.display = "none";
+    
+      toggle();
+    }
+
+    function toggle() {
+      var blur = document.getElementById('blur');
+      blur.classList.toggle('active');
+      var inputForm = document.getElementById('inputForm');
+      inputForm.classList.toggle('active');
     }
 
     return (
         <>
           <div className="wholebox">
-            <div className="topbutt">
+            <div className="topbutt" id="blur">
               <Button variant="contained" color="primary" className="button2" onClick={e => openForm(e)}>Seek Help</Button>
-              <div className="questionForm">
-                <div id="inputForm" className="popupForm">
+
+              <Button variant="contained" color="secondary" className="button2">Live Chat</Button>
+              { events.map(event => <Maincard title={event.Question} date={event.Date} description={event.Description}/> )}
+              {/* <Maincard ></Maincard> */}
+              <Typography className="footer">Made with love by sixDynamos</Typography>
+            </div>
+            <div id="inputForm" className="popupForm">
+                <button type="button" className="closeButton" onClick={e => closeForm(e)}>X</button>
                   <form className="inputElements">
-                    <button type="button" className="closeButton" onClick={e => closeForm(e)}>X</button>
                     <h2>Question:</h2>
                     <input className="question" id="Question" type="text" placeholder="Question" onChange={e => setQuestion(e.target.value)}></input><br></br>
                     <h2>Description:</h2>
@@ -94,15 +107,8 @@ function Main() {
                     <input className="postButton" type="submit"onClick={e => submit(e)} value="Post"></input>
                   </form>
                 </div>
-              </div>
-
-              <Button variant="contained" color="secondary" className="button2">Live Chat</Button>
-              { events.map(event => <Maincard title={event.Question} date={event.Date} description={event.Description}/> )}
-              {/* <Maincard ></Maincard> */}
-              <Typography className="footer">Made with love by sixDynamos</Typography>
-            </div>
-          </div
-        ></>
+          </div>
+        </>
     );
 }
 
