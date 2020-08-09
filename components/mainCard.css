@@ -1,4 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Vollkorn:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
+.boxybox {
+    background: none !important;
+    position: fixed !important;
+    display: inline;
+    z-index: 2;
+    width: 40vw !important;
+    margin-left: 7vw !important;
+    margin-top: 50vh !important;
+}
+
+.subtit {
+    margin-top: -15vh !important;
+    font-size: 3em !important;
+    color: #5F5E5C !important;
+    font-family: 'Quicksand', sans-serif !important;
+}
+
+.tit {
+    color: #5F5E5C !important;
+    font-family: 'Quicksand', sans-serif !important;
+    font-size: 7em !important;
+}
+
+.subHeadtit {
+    color: #5F5E5C !important;
+    font-family: 'Quicksand', sans-serif !important;
+    font-size: 1.5em !important;
+}
+
+ul {
+    background: none !important;
+    position: fixed !important;
+    display: inline;
+    z-index: 2;
+}
 
 .questionForm {
     text-align: center;
@@ -8,6 +44,10 @@
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+}
+
+html {
+    background-image: url("/home_img.png") !important;
 }
 
 .question {
@@ -57,13 +97,14 @@
     margin-left: auto !important;
     margin-right: auto !important;
     margin-top: 1vh !important;
-    font-family: 'Vollkorn', serif !important;
+    font-family: 'Quicksand', sans-serif !important;
     text-transform: capitalize !important;
     background-color: cadetblue !important;
     border: 0!important;
     border-radius: 0.4em !important;
     font-size: em !important;
-    color: lemonchiffon !important;
+    color: white
+     !important;
     font-weight: 100 !important;
 }
 .button2{
@@ -71,13 +112,33 @@
     margin-left: 0vw !important;
     margin-right: 2vw !important;
     margin-top: 3vh !important;
-    font-family: 'Vollkorn', serif !important;
+    font-family: 'Quicksand', sans-serif !important;
     text-transform: capitalize !important;
     background-color: cadetblue !important;
     border: 0!important;
     border-radius: 0.4em !important;
     font-size: 3em !important;
-    color: lemonchiffon !important;
+    color: white !important;
+    font-weight: 100 !important;
+}
+.menuu{
+    list-style-type: none !important;
+}
+a {
+    text-decoration: none !important;
+}
+.button5{
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    margin-top: 1vh !important;
+    color: beige !important;
+    font-family: 'Vollkorn', serif !important;
+    text-transform: capitalize !important;
+    background-color: #2D599A !important;
+    padding: 1em 1em !important;
+    border: 0!important;
+    border-radius: 0.4em !important;
+    font-size: 2em !important;
     font-weight: 100 !important;
 }
 .textt{
@@ -90,18 +151,21 @@
     border-radius: 0.2em;
     margin-top: 2.5em !important;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 .test {
     margin-top: 1.2em;
-    color: beige !important;
+    color: #6788bb  !important;
     display: block !important;
-    font-family: 'Vollkorn', serif !important;
+    font-family: 'Poppins', sans-serif !important;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Vollkorn:wght@900&display=swap');
 
 .box {
-  height: 20vh;
-  background: linear-gradient(to right, #200122, #6f0000);
+  height: auto !important;
+  background: linear-gradient(to right, #F0EEEB, #FBFAFA);
   box-shadow: 0px 13px 40px -13px rgba(0,0,0,0.75);
   width: 60%;
   margin: 3vw auto 0 auto;
@@ -109,35 +173,37 @@
   border-radius: 1em !important;
 }
 
+
 .h1 {
     text-align: center !important;
     padding-top:1vh !important;
-    font-family: 'Vollkorn', serif !important;
-    color: wheat !important;
+    font-family: 'Quicksand', sans-serif !important;
+    color: #2D599A !important;
     font-size: 2.5em !important;
 }
 
 .h4 {
     width: 50vw;
     text-align: center !important;
-    font-family: 'Vollkorn', serif !important;
+    font-family: 'Roboto', sans-serif !important;
     display: block !important;
     margin-bottom: 0vh !important;
-    color: wheat !important;
+    color: #5F5E5C !important;
     margin-top: 1.2em !important;
 }
 
 .wholebox{
-    height: 101vh !important;
+    min-height: 100vh !important;
+    height: auto !important;
     margin: 0 0 !important;
-    background: linear-gradient(to right, #0F2027, #203A43, #2C5364) !important;
+    background: linear-gradient(to right, #B7C6DC, #B7C6DC, #C7DFFA) !important;
     font-family: 'Vollkorn', serif !important;
 }
 
 .subHead{
     padding-top: 0.7vh !important;
-    color: wheat !important;
+    color: #5F5E5C !important;
     font-size: 1.5em !important;
-    font-family: 'Vollkorn', serif !important;
+    font-family: 'Roboto', sans-serif !important;
     text-align: center;
 }
