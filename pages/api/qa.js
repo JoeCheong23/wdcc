@@ -16,10 +16,11 @@ handler.post(async (req, res) => {
     console.log('req',req.body);
     const data = JSON.parse(req.body);
     data.date = new Date();
-    console.log(data);
+
     try {
       await req.db.collection('Posts').insertOne({ Question: data.question, Description: data.description, Date: data.date })
-      res.json({ message: 'ok' })
+      console.log(data)
+      res.json(data)
     } catch (e) {
       res.json({ message: 'error', e })
     }

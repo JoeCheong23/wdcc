@@ -49,8 +49,13 @@ function Main() {
         // Then insert it into an array
         // (Optional) Then sort the array by date
         // Then setEvents with new array
-        const arr = [newEvent, ...events]
+        // const arr = [newEvent, ...events]
+
         fetch('/api/qa',{ method:'POST', body: JSON.stringify(info)})
+        setEvents([info, ...events])
+        
+        console.log(`Result: ${JSON.stringify(events)}`)
+
         const q = document.getElementById('Question').value;
         const d = document.getElementById('Description').value;
         // update page
