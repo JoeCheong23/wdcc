@@ -38,18 +38,13 @@ function Main() {
     const [description, setDescription] = useState("")
 
     const submit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         console.log({question, description})
         
         const info = {
           question: question,
           description: description
         }
-        // Get the result JSON
-        // Then insert it into an array
-        // (Optional) Then sort the array by date
-        // Then setEvents with new array
-        // const arr = [newEvent, ...events]
 
         fetch('/api/qa',{ method:'POST', body: JSON.stringify(info)})
         setEvents([info, ...events])
@@ -63,6 +58,7 @@ function Main() {
         document.getElementById('Description').value = "";
 
         document.getElementById('inputForm').style.display = "none";
+        e.preventDefault()
     }
 
     // fetch data
@@ -75,16 +71,15 @@ function Main() {
       fetchEvents()
     }, [])
 
-    const handleChange = (event) => {
-      setValue(event.target.value);
-    }
-
     const openForm = (e) => {
       document.getElementById('inputForm').style.display = "block";
+      e.preventDefault()
     }
 
     const closeForm = (e) => {
+      e.preventDefault();
       document.getElementById('inputForm').style.display = "none";
+      
     }
 
     return (
@@ -106,7 +101,7 @@ function Main() {
               </div>
 
               <Button variant="contained" color="secondary" className="button2">Live Chat</Button>
-              { events.reverse().map(event => <Maincard title={event.Question} date={event.Date} description={event.Description}/> )}
+              { events.sort((a, b) => new Date(b.Date).getTime() - new Date(a.Date).getTime()).map(event => <Maincard title={event.Question} date={event.Date} description={event.Description}/> )}
               {/* <Maincard ></Maincard> */}
               <Typography className="footer">Made with love by sixDynamos</Typography>
             </div>
