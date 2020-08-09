@@ -100,7 +100,7 @@ function Main() {
               </div>
 
               <Button variant="contained" color="secondary" className="button2">Live Chat</Button>
-              {isLoading ? <CircularProgress color="secondary" size={50} style={{position: 'absolute', top:'50%', left:'50%'}}/> : events.map(event => <Maincard title={event.Question} date={event.Date} description={event.Description}/> )}
+              {isLoading ? <CircularProgress color="secondary" size={50} style={{position: 'absolute', top:'50%', left:'50%'}}/> : events.sort((a,b) => new Date(b.Date).getTime()).map(event => <Maincard title={event.Question} date={event.Date} description={event.Description}/> )}
               {/* <Maincard ></Maincard> */}
               <Typography className="footer">Made with love by SixDynamos</Typography>
             </div>
