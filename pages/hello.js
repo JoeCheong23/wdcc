@@ -10,6 +10,8 @@ const name = 'Henry'
 const HelloFunction = () => {
   const [isLoading, setLoading] = useState(true)
   const [events, setEvents] = useState([])
+  const [value, setValue] = useState('');
+
   // fetch data
   useEffect(() => {
     const fetchEvents = async () => {
@@ -28,7 +30,7 @@ const HelloFunction = () => {
       <article>
         <h1>React Hello World</h1>
         <Greet/>
-        <Hello name={name} />
+        <Hello name={name}/>
         {/* <h1>{events[0] ? events[0].Question : ''}</h1> */}
         {isLoading ? <center>"Loading!"</center> : events.map(event => {
           return(
